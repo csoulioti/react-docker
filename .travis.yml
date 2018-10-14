@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t csoulioti/react-docker -f Dockerfile.dev .
+
+script:
+    - docker run csoulioti/react-docker npm run test -- --coverage
